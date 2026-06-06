@@ -1,0 +1,14 @@
+spring.application.name=football-analyzer
+
+# ------------------------------------------------------------
+# API Keys — Bu dosyayı kopyala, adını "application.properties" yap
+# ve kendi anahtarlarını doldur. Asıl dosya .gitignore'dadır, repoya gitmez.
+# ------------------------------------------------------------
+
+# RapidAPI (Sofascore) anahtarın:
+# https://rapidapi.com/sofascore/api/sofascore adresinden al
+rapidapi.key=BURAYA_RAPIDAPI_KEYINI_YAZ
+
+# Google Gemini anahtarın:
+# https://aistudio.google.com/app/apikey adresinden al
+gemini.key=BURAYA_GEMINI_KEYINI_YAZ
