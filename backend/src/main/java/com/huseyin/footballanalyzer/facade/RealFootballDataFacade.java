@@ -25,10 +25,7 @@ public class RealFootballDataFacade implements FootballDataFacade {
         matchData.setHomeTeam(homeTeamName);
         matchData.setAwayTeam(awayTeamName);
 
-        System.out.println("✅ [Frontend ID] " + homeTeamName + " ID: " + homeTeamId);
-        System.out.println("✅ [Frontend ID] " + awayTeamName + " ID: " + awayTeamId);
-
-        // ── 1. KANAL: EV SAHİBİ SON MAÇLAR ──
+        // Channel 1: Home team — last matches
         try {
             String url = "https://sofascore.p.rapidapi.com/teams/get-last-matches?teamId=" + homeTeamId;
             ResponseEntity<String> res = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
@@ -37,31 +34,31 @@ public class RealFootballDataFacade implements FootballDataFacade {
             matchData.setHomeLastMatchesJson("{ 'error': 'Maç listesi alınamadı' }");
         }
 
-        // ── 2. KANAL: DEPLASMAN SON MAÇLAR ──
+        // Channel 2: Away team — last matches
         try {
             String url = "https://sofascore.p.rapidapi.com/teams/get-last-matches?teamId=" + awayTeamId;
             ResponseEntity<String> res = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
             matchData.setAwayLastMatchesJson(res.getBody());
         } catch (Exception e) {
-            matchData.setAwayLastMatchesJson("{ 'error': 'Maç listesi alınamadı' }");
+            matchData.setAwayLastMatchesJson("{ 'error': 'Match list unavailable' }");
         }
 
-        // ── 3. KANAL: EV SAHİBİ SEZON İSTATİSTİKLERİ ──
+        // Channel 3: Home team — season statistics
         try {
             String url = "https://sofascore.p.rapidapi.com/teams/get-statistics?teamId=" + homeTeamId;
             ResponseEntity<String> res = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
             matchData.setHomeStatsJson(res.getBody());
         } catch (Exception e) {
-            matchData.setHomeStatsJson("{ 'error': 'İstatistikler alınamadı' }");
+            matchData.setHomeStatsJson("{ 'error': 'Statistics unavailable' }");
         }
 
-        // ── 4. KANAL: DEPLASMAN SEZON İSTATİSTİKLERİ ──
+        // Channel 4: Away team — season statistics
         try {
             String url = "https://sofascore.p.rapidapi.com/teams/get-statistics?teamId=" + awayTeamId;
             ResponseEntity<String> res = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
             matchData.setAwayStatsJson(res.getBody());
         } catch (Exception e) {
-            matchData.setAwayStatsJson("{ 'error': 'İstatistikler alınamadı' }");
+            matchData.setAwayStatsJson("{ 'error': 'Statistics unavailable' }");
         }
 
         return matchData;

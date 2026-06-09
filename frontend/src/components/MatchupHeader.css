@@ -299,3 +299,77 @@
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
 
+/* ========== RESPONSIVE ========== */
+
+/* Orta ekranlar (1024px - 1280px arası monitörler) */
+@media (max-width: 1280px) {
+  .matchup-header {
+    padding: 20px 20px;
+    gap: 16px;
+  }
+
+  .team-full-name {
+    font-size: 15px;
+  }
+
+  .team-display {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .team-emblem {
+    width: 52px;
+    height: 52px;
+  }
+
+  .team-emoji {
+    font-size: 32px;
+  }
+
+  .team-logo-crest {
+    width: 46px;
+    height: 46px;
+  }
+
+  .vs-badge {
+    padding: 0 10px;
+  }
+
+  .vs-circle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .analyze-btn {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+}
+
+/* Küçük ekranlar (900px altı — dikey yerleşim) */
+@media (max-width: 900px) {
+  .vs-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-display {
+    width: 100%;
+    flex-direction: row !important;
+    text-align: left !important;
+  }
+
+  .vs-badge {
+    padding: 0;
+  }
+
+  .vs-line {
+    width: 60px;
+  }
+
+  .analyze-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

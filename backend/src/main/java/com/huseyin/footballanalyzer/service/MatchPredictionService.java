@@ -13,7 +13,7 @@ public class MatchPredictionService {
     private final MatchAnalysisStrategy matchAnalysisStrategy;
     private final AiService aiService;
 
-    // Tüm mimari bileşenleri gevşek bağlı (loose coupling) olarak enjekte ediyoruz
+    // Constructor injection for loose coupling — all dependencies injected by Spring IoC container
     public MatchPredictionService(FootballDataFacade footballDataFacade,
                                   MatchAnalysisStrategy matchAnalysisStrategy,
                                   AiService aiService) {
@@ -23,16 +23,16 @@ public class MatchPredictionService {
     }
 
     public AnalysisResult getMatchPrediction(String leagueId, String homeTeamId, String homeTeamName, String awayTeamId, String awayTeamName) {
-        // 1. Gerçek API'den son yılların maç verilerini çek
+        // Step 1: Fetch raw match data from external API via Facade
         MatchData matchData = footballDataFacade.fetchAndPrepareMatchData(leagueId, homeTeamId, homeTeamName, awayTeamId, awayTeamName);
 
-        // 2. Verileri basit istatistiksel stratejimizle süzgeçten geçirip özet oluştur
+        // Step 2: Process raw data using the configured analysis strategy
         AnalysisResult analysisResult = matchAnalysisStrategy.analyze(matchData);
 
-        // 3. Oluşan bu özeti Gerçek Yapay Zekaya gönder ve insan dilindeki yorumu al
+        // Step 3: Send aggregated data to the AI service and retrieve the generated commentary
         String aiCommentary = aiService.generateAiCommentary(analysisResult.getRawDataSummary());
 
-        // 4. UI ekranındaki siyah kutuya algoritma özeti yerine gerçek AI yorumunu basıyoruz
+        // Step 4: Replace the raw data summary with the AI-generated analysis report
         analysisResult.setRawDataSummary(aiCommentary);
 
         return analysisResult;

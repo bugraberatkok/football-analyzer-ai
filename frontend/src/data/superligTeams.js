@@ -3,7 +3,7 @@ export const superligTeams = [
     id: "galatasaray",
     sofascoreId: "3061",
     name: "Galatasaray",
-    shortName: "GS",
+    shortName: "gs",
     primaryColor: "#F8C500",
     secondaryColor: "#CC0000",
     city: "İstanbul",
