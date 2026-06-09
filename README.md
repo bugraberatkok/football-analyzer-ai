@@ -184,4 +184,4 @@ This project is for educational purposes.
 ## Developers
 
 Hüseyin Hünkar
-Buğra Berat Kök
+<br> Buğra Berat Kök
