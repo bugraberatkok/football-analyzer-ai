@@ -180,3 +180,8 @@ Frontend renders the analysis panel
 
 This project is for educational purposes.
 
+
+## Developers
+
+Hüseyin Hünkar
+Buğra Berat Kök
