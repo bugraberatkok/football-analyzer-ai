@@ -1,2 +1,4 @@
 /mvnw text eol=lf
 *.cmd text eol=crlf
+# Stylesheets are left out so the language bar shows the code (JavaScript and Java), not CSS.
+*.css linguist-detectable=false
