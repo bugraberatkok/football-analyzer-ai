@@ -180,8 +180,13 @@ Frontend renders the analysis panel
 
 This project is for educational purposes.
 
+---
 
-## Developers
+## 👥 Developers
 
-Hüseyin Hünkar
-<br> Buğra Berat Kök
+Co-developed by:
+
+- **Hüseyin Hünkar** · [@HuseyinHunkar07](https://github.com/HuseyinHunkar07)
+- **Buğra Berat Kök** · [@bugraberatkok](https://github.com/bugraberatkok)
+
+We built the project together, working on the same parts side by side rather than splitting it up.
