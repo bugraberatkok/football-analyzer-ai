@@ -46,7 +46,7 @@ function renderContent(content) {
       return (
         <div key={i} className="ai-bullet">
           <span className="bullet-dot">▸</span>
-          <BoldedText text={trimmed.slice(2)} />
+          <span><BoldedText text={trimmed.slice(2).trim()} /></span>
         </div>
       );
     }

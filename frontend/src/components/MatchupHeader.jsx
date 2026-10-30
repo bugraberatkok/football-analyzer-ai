@@ -1,6 +1,10 @@
 import React from 'react';
 import './MatchupHeader.css';
 
+// Süper Lig seasons start in August
+const now = new Date();
+const seasonStart = now.getMonth() >= 7 ? now.getFullYear() : now.getFullYear() - 1;
+
 export default function MatchupHeader({ homeTeam, awayTeam, onAnalyze, loading }) {
   const canAnalyze = homeTeam && awayTeam && homeTeam.id !== awayTeam.id;
 
@@ -11,7 +15,7 @@ export default function MatchupHeader({ homeTeam, awayTeam, onAnalyze, loading }
         <span className="league-flag">🇹🇷</span>
         <span className="league-name">Trendyol Süper Lig</span>
         <span className="league-dot">•</span>
-        <span className="league-season">2025 / 2026</span>
+        <span className="league-season">{seasonStart} / {seasonStart + 1}</span>
       </div>
 
       {/* VS Section */}
