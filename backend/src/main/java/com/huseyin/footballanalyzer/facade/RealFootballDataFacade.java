@@ -42,7 +42,7 @@ public class RealFootballDataFacade implements FootballDataFacade {
             ResponseEntity<String> res = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
             matchData.setHomeLastMatchesJson(res.getBody());
         } catch (Exception e) {
-            matchData.setHomeLastMatchesJson("{ 'error': 'Maç listesi alınamadı' }");
+            matchData.getMissingData().add("ev sahibinin son maçları");
         }
 
         // Channel 2: Away team — last matches
@@ -51,7 +51,7 @@ public class RealFootballDataFacade implements FootballDataFacade {
             ResponseEntity<String> res = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
             matchData.setAwayLastMatchesJson(res.getBody());
         } catch (Exception e) {
-            matchData.setAwayLastMatchesJson("{ 'error': 'Match list unavailable' }");
+            matchData.getMissingData().add("deplasman takımının son maçları");
         }
 
         // Channel 3: Home team — season statistics
@@ -61,7 +61,7 @@ public class RealFootballDataFacade implements FootballDataFacade {
             ResponseEntity<String> res = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
             matchData.setHomeStatsJson(res.getBody());
         } catch (Exception e) {
-            matchData.setHomeStatsJson("{ 'error': 'Statistics unavailable' }");
+            matchData.getMissingData().add("ev sahibinin sezon istatistikleri");
         }
 
         // Channel 4: Away team — season statistics
@@ -71,7 +71,7 @@ public class RealFootballDataFacade implements FootballDataFacade {
             ResponseEntity<String> res = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
             matchData.setAwayStatsJson(res.getBody());
         } catch (Exception e) {
-            matchData.setAwayStatsJson("{ 'error': 'Statistics unavailable' }");
+            matchData.getMissingData().add("deplasman takımının sezon istatistikleri");
         }
 
         return matchData;

@@ -26,6 +26,11 @@ public class MatchPredictionService {
         // Step 1: Fetch raw match data from external API via Facade
         MatchData matchData = footballDataFacade.fetchAndPrepareMatchData(leagueId, homeTeamId, homeTeamName, awayTeamId, awayTeamName);
 
+        // Without real data Gemini would invent the numbers, so stop here instead
+        if (!matchData.getMissingData().isEmpty()) {
+            throw new MatchDataUnavailableException(matchData.getMissingData());
+        }
+
         // Step 2: Process raw data using the configured analysis strategy
         AnalysisResult analysisResult = matchAnalysisStrategy.analyze(matchData);
 

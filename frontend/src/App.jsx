@@ -31,7 +31,8 @@ export default function App() {
       const response = await fetch(`/api/predictions?${params}`);
 
       if (!response.ok) {
-        throw new Error(`Sunucu hatası: ${response.status}`);
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.error ?? `Sunucu hatası: ${response.status}`);
       }
 
       const data = await response.json();
