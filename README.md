@@ -6,7 +6,7 @@ An AI-powered pre-match football analysis system that fetches real-time statisti
 
 ## ✨ Features
 
-- **Real-time Data Aggregation** — Fetches last matches and season-level statistics for both home and away teams simultaneously via Sofascore RapidAPI (4 data channels)
+- **Real-time Data Aggregation** — Fetches last matches and season-level statistics for both home and away teams simultaneously via SportAPI on RapidAPI, which serves Sofascore data (4 data channels)
 - **AI-Generated Analysis** — Sends structured football data to Google Gemini and receives a professional Turkish-language match analysis covering form, xG comparison, and tactical outlook
 - **Layered Architecture** — Built with Facade and Strategy design patterns for clean separation of concerns and extensibility
 - **Responsive Web UI** — React (Vite) frontend with team selector, VS matchup view, and live analysis panel
@@ -33,7 +33,7 @@ An AI-powered pre-match football analysis system that fetches real-time statisti
 | HTTP Client | Spring `RestTemplate` |
 | Build Tool | Maven |
 | Boilerplate | Lombok (`@Data`) |
-| Data Source | Sofascore via RapidAPI |
+| Data Source | Sofascore via SportAPI (RapidAPI) |
 | AI Engine | Google Gemini API |
 
 ---
@@ -82,7 +82,7 @@ football-analyzer/
 - JDK 21+
 - Maven 3.8+
 - Node.js 18+
-- A [RapidAPI](https://rapidapi.com/sofascore/api/sofascore) account with Sofascore API access
+- A [RapidAPI](https://rapidapi.com/rapidsportapi/api/sportapi7) account subscribed to SportAPI (the free Basic plan allows 50 requests a month; one analysis uses 4, plus 1 for the season lookup after each restart)
 - A [Google AI Studio](https://aistudio.google.com/apikey) Gemini API key
 
 ### 1 — Configure API Keys

@@ -5,8 +5,8 @@ spring.application.name=football-analyzer
 # ve kendi anahtarlarını doldur. Asıl dosya .gitignore'dadır, repoya gitmez.
 # ------------------------------------------------------------
 
-# RapidAPI (Sofascore) anahtarın:
-# https://rapidapi.com/sofascore/api/sofascore adresinden al
+# RapidAPI (SportAPI, Sofascore verisi) anahtarın:
+# https://rapidapi.com/rapidsportapi/api/sportapi7 adresinden al (Basic plan ücretsiz)
 rapidapi.key=BURAYA_RAPIDAPI_KEYINI_YAZ
 
 # Google Gemini anahtarın:
